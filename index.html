@@ -109,18 +109,19 @@
 							.duration(200)
 							.style("opacity", .9);
 
-						if (d.properties.visited < 50) {
-							div.text("I've visited " + d.properties.name + " " + d.properties.visited + " time(s)")
+
+						if (d.properties.visited >= 0 && d.properties.visited < 50) {
+							div.text("I've visited " + d.properties.name + " " + d.properties.visited + " times")
+								.style("left", (event.pageX) + "px")
+								.style("top", (event.pageY - 28) + "px")
+								.style("color", 'green');
+						} else if (d.properties.visited >= 50) {
+							div.text("I've lived in " + d.properties.name + "!")
 								.style("left", (event.pageX) + "px")
 								.style("top", (event.pageY - 28) + "px")
 								.style("color", 'green');
 
-
-						} else {
-							div.text("I've visited " + d.properties.name + " over " + d.properties.visited + " time(s)")
-								.style("left", (event.pageX) + "px")
-								.style("top", (event.pageY - 28) + "px")
-						}
+						};
 					});
 			});
 
