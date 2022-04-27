@@ -24,6 +24,12 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 15px;
 	background: #E6E9D5;
+
+}
+
+.text{
+	margin-top: 40px;
+	color: orange;
 }
 
 h1{
@@ -32,15 +38,16 @@ h1{
 	font-size: 75px;
 	color: #678D58;
 	font-weight: 800;
-	text-shadow: 7px 7px rgba(200,200,200, .8);
+	text-shadow: -3px 4px #A6C48A,
+	-10px 10px rgba(200,200,200, .8);
 }
 
 .tooltip {
 	opacity: .3;
 	font-family: 'Open Sans', sans-serif;
-	font-size: 15px;
+
+	font-size: 25px;
 	text-align: center;
-	padding: 10px;
 
 }
 
@@ -58,5 +65,5 @@ h1{
 SVG{
 	/* background: purple; */
 	position:absolute;
-	margin:auto 0;
+	margin-left: 60px;
 }

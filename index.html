@@ -11,7 +11,6 @@
 <body>
 	<h1>National Bucketlist Map <br>Visiting Every State in the U.S. </h1>
 	<script type="text/javascript">
-
 		//Width and height of map
 		var width = 1350;
 		var height = 740;
@@ -43,6 +42,13 @@
 		var div = d3.select("body")
 			.append("div")
 			.attr("class", "tooltip")
+			.style("width", "105px")
+			.style("height", "70px")
+			.style("color", "green")
+			.style("padding", "10px")
+			.style("text-align", "center")
+			.style("font-size", "15px")
+			.style("font-family", "'Open Sans', sans-serif")
 
 
 
@@ -84,7 +90,7 @@
 					.enter()
 					.append("path")
 					.attr("d", path)
-					.style("stroke", "#E6E9D5")  //map outline
+					.style("stroke", "#E6E9D5") //map outline
 					.style("stroke-width", "2")
 					.style("fill", function(d) {
 						// Get data value
@@ -103,11 +109,14 @@
 							.duration(200)
 							.style("opacity", .9);
 
-						if (d.properties.visited < 50){
-						div.text("I've visited " + d.properties.name + " " + d.properties.visited + " time(s)")
-							.style("left", (event.pageX) + "px")
-							.style("top", (event.pageY - 28) + "px")
-						}else{
+						if (d.properties.visited < 50) {
+							div.text("I've visited " + d.properties.name + " " + d.properties.visited + " time(s)")
+								.style("left", (event.pageX) + "px")
+								.style("top", (event.pageY - 28) + "px")
+								.style("color", 'green');
+
+
+						} else {
 							div.text("I've visited " + d.properties.name + " over " + d.properties.visited + " time(s)")
 								.style("left", (event.pageX) + "px")
 								.style("top", (event.pageY - 28) + "px")
@@ -134,10 +143,12 @@
 					.style("fill", "rgb(217,91,67)")
 					.style("opacity", 0.85)
 
+
 					.on("mouseover", function(event, d) {
 						div.transition()
 							.duration(200)
 							.style("opacity", .9);
+
 						div.text("I've lived in " + d.place + " for " + d.years + " years of my life.")
 							.style("left", (event.pageX) + "px")
 							.style("top", (event.pageY - 28) + "px");
@@ -148,6 +159,7 @@
 						div.transition()
 							.duration(500)
 							.style("opacity", .4);
+
 					});
 
 			});
