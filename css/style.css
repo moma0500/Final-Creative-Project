@@ -30,15 +30,17 @@ h1{
 	text-align: center;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 75px;
-	background:orange;
 	color: #678D58;
 	font-weight: 800;
+	text-shadow: 7px 7px rgba(200,200,200, .8);
 }
 
 .tooltip {
 	opacity: .3;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 15px;
+	text-align: center;
+	padding: 10px;
 
 }
 
