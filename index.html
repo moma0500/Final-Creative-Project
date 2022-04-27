@@ -102,9 +102,16 @@
 						div.transition()
 							.duration(200)
 							.style("opacity", .9);
+
+						if (d.properties.visited < 50){
 						div.text("I've visited " + d.properties.name + " " + d.properties.visited + " time(s)")
 							.style("left", (event.pageX) + "px")
 							.style("top", (event.pageY - 28) + "px")
+						}else{
+							div.text("I've visited " + d.properties.name + " over " + d.properties.visited + " time(s)")
+								.style("left", (event.pageX) + "px")
+								.style("top", (event.pageY - 28) + "px")
+						}
 					});
 			});
 

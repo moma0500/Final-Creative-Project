@@ -25,11 +25,11 @@ body {
 /* Legend Position Style */
 .legend {
 	position:absolute;
-	margin-left: 250px;
-	margin-top: 200px;
+
 	background: green;
-	left:800px;
-	top:350px;
+	height: 120px;
+	left:1100px;
+	top:650px;
 }
 
 SVG{
