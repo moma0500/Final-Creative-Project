@@ -4,17 +4,17 @@
 <head>
 	<meta charset="utf-8">
 	<script src="https://d3js.org/d3.v6.min.js"></script>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/style.css">
 	<title>D3_V6 Map</title>
 </head>
 
 <body>
-	<h1>Places that I've lived in and visited</h1>
+	<h1>National Bucketlist Map <br>Visiting Every State in the U.S. </h1>
 	<script type="text/javascript">
 
 		//Width and height of map
 		var width = 1350;
-		var height = 900;
+		var height = 700;
 
 		// D3 Projection
 		var projection = d3.geoAlbersUsa()
@@ -28,7 +28,7 @@
 
 		// Define linear scale for output -- color pallette
 		var color = d3.scaleLinear()
-			.range(["red", "yellow", "blue"]);
+			.range(['#678D58', '#A6C48A', 'brown']);
 
 		var legendText = ["States Lived", "States Visited", "Need To Visit!"];
 
@@ -43,16 +43,16 @@
 		var div = d3.select("body")
 			.append("div")
 			.attr("class", "tooltip")
-			.style("opacity", .3);
+
 
 
 		// Load in my states data!
-		d3.csv("stateslived.csv").then(function(data) {
+		d3.csv("data/stateslived.csv").then(function(data) {
 			console.log(data)
 			color.domain([0, 1, 100]); // setting the range of the input data
 
 			// Load GeoJSON data and merge with states data
-			d3.json("us-states.json").then(function(json) {
+			d3.json("data/us-states.json").then(function(json) {
 
 				// Loop through each state data value in the .csv file
 				for (var i = 0; i < data.length; i++) {
@@ -84,7 +84,7 @@
 					.enter()
 					.append("path")
 					.attr("d", path)
-					.style("stroke", "white")  //map outline
+					.style("stroke", "#E6E9D5")  //map outline
 					.style("stroke-width", "2")
 					.style("fill", function(d) {
 						// Get data value
@@ -116,7 +116,7 @@
 			});
 
 			// Map the cities I have lived in!
-			d3.csv("cities-lived.csv").then(function(data) {
+			d3.csv("data/cities-lived.csv").then(function(data) {
 				console.log(data)
 				svg.selectAll("circle")
 					.data(data)
@@ -138,7 +138,7 @@
 						div.transition()
 							.duration(200)
 							.style("opacity", .9);
-						div.text("I've lived in" + d.place + "for" + d.years + "of my life")
+						div.text("I've lived in " + d.place + " for " + d.years + " years of my life.")
 							.style("left", (event.pageX) + "px")
 							.style("top", (event.pageY - 28) + "px");
 					})
@@ -147,14 +147,14 @@
 					.on("mouseout", function(event, d) {
 						div.transition()
 							.duration(500)
-							.style("opacity", 0);
+							.style("opacity", .4);
 					});
 
 			});
 
 			var legend = d3.select("body").append("svg")
 				.attr("class", "legend")
-				.attr("width", 140)
+				.attr("width", 240)
 				.attr("height", 200)
 				.selectAll("g")
 				.data(color.domain().slice().reverse())
@@ -171,7 +171,7 @@
 
 			legend.append("text")
 				.data(legendText)
-				.attr("x", 24)
+				.attr("x", 34)
 				.attr("y", 9)
 				.attr("dy", ".35em")
 				.text(function(d) {

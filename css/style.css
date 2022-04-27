@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+
+path:hover {
+	fill-opacity: .7;
+}
+
+/* Style for Custom Tooltip */
+div.tooltip {
+ 	position: absolute;
+	text-align: center;
+	width: 120px;
+	height: 80px;
+	padding: 2px;
+	font: 12px sans-serif;
+	background: #E6E9D5;
+	border: 0px;
+	border-radius: 8px;
+	pointer-events: none;
+}
+
+/* Legend Font Style */
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+	background: #E6E9D5;
+}
+
+h1{
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 75px;
+	background:orange;
+	color: #678D58;
+	font-weight: 800;
+}
+
+.tooltip {
+	opacity: .3;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+
+}
+
+/* Legend Position Style */
+.legend {
+	position:absolute;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+	background: #E6E9D5;
+	height: 120px;
+	left:1120px;
+	top:750px;
+}
+
+SVG{
+	/* background: purple; */
+	position:absolute;
+	margin:auto 0;
+}
